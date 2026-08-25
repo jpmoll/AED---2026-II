@@ -24,7 +24,30 @@ private:
     O ord;
     T Arr[N];
 public:
+    
+    bool find (T val, T* &pos){
+        
+        T* ini = Arr;
+        T* end = Arr + elem - 1;
+        
+        while(ini <= end){
+            T* mid = Arr + ((end - ini) / 2);
+            if (*mid == val){
+                pos = mid;
+                return true;
+            } else if (*mid < val){
+                ini = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        pos = ini;
+        return false;
+    }
+    
     void add (T e){
+        T* pos;
+        bool encontrado = find(e, pos);
         if (elem < tam){
             *(Arr + elem) = e;
             elem++;
@@ -32,6 +55,7 @@ public:
             cout << "Lista llena" << endl;
         }
     };
+    
     bool del (T e){
         // comprobar si solo tiene un valor
         // la busqueda binaria sirve con más de 2 valores
