@@ -28,11 +28,18 @@ public:
     int  count() const;
     void print();
 
-    // Acceso a punteros al inicio/fin, para recorrer sin usar indices
-    T* begin() { return vec; }
-    T* end() { return vec + nelem; }
-    const T* begin() const { return vec; }
-    const T* end() const { return vec + nelem; }
+    T* begin() {
+        return vec;
+    }
+    T* end() {
+        return vec + nelem;
+    }
+    const T* begin() const {
+        return vec;
+    }
+    const T* end() const {
+        return vec + nelem;
+    }
 
 private:
     T* vec;
@@ -48,7 +55,7 @@ CVector<T>::CVector(int s) {
 }
 
 template <typename T>
-CVector<T>::CVector(const CVector<T>& other){
+CVector<T>::CVector(const CVector<T>& other) {
 
     size = other.size;
     nelem = other.nelem;
@@ -61,7 +68,7 @@ CVector<T>::CVector(const CVector<T>& other){
 }
 
 template <typename T>
-CVector<T>& CVector<T>::operator=(const CVector<T>& other){
+CVector<T>& CVector<T>::operator=(const CVector<T>& other) {
 
     if (this == &other)
         return *this;
@@ -79,15 +86,15 @@ CVector<T>& CVector<T>::operator=(const CVector<T>& other){
 }
 
 template <typename T>
-CVector<T>::~CVector(){
+CVector<T>::~CVector() {
 
     delete[] vec;
 }
 
 template <typename T>
-void CVector<T>::expand(){
+void CVector<T>::expand() {
 
-    T *q = new T[size * 2];
+    T* q = new T[size * 2];
 
     T* src = vec;
     T* dst = q;
@@ -101,7 +108,8 @@ void CVector<T>::expand(){
 
 template <typename T>
 void CVector<T>::collapse()
-{}
+{
+}
 
 template <typename T>
 void CVector<T>::push_front(const T& x)
@@ -175,7 +183,7 @@ template <typename T>
 void CVector<T>::print()
 {
     for (T* p = vec; p != vec + nelem; ++p)
-        cout << *p << " ";
+        cout << *p;
 }
 
 // String a números/operadores/paréntesis
@@ -202,9 +210,7 @@ CVector<string> tokenize(const string& expr)
             continue;
         }
 
-        if (c == '+' || c == '-' || c == '*' || c == '/' ||
-            c == '(' || c == ')')
-        {
+        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')') {
             tokens.push_back(string(1, c));
             ++p;
             continue;
@@ -217,50 +223,48 @@ CVector<string> tokenize(const string& expr)
 
 //  Infijo a postfijo
 
-int precedence(const string& op)
-{
+int importancia(const string& op){
+
     if (op == "+" || op == "-") return 1;
     if (op == "*" || op == "/") return 2;
     return 0;
 }
 
-bool isOperator(const string& tok) {
+bool esOperador(const string& tok) {
     return tok == "+" || tok == "-" || tok == "*" || tok == "/";
 }
 
-CVector<string> infixToPostfix(const CVector<string>& tokensIn) {
+CVector<string> conversor(const CVector<string>& tokensIn) {
 
     CVector<string> tokens = tokensIn;
     CVector<string> output;
     CVector<char> ops;
 
-    for (string* pt = tokens.begin(); pt != tokens.end(); ++pt){
+    for (string* pt = tokens.begin(); pt != tokens.end(); ++pt) {
 
         string tok = *pt;
 
-        if (isOperator(tok))
+        if (esOperador(tok))
         {
             while (!ops.empty() && ops.back() != '(' &&
-                   precedence(string(1, ops.back())) >= precedence(tok))
+                // retorno 1 (+ y -) o 2 (* y /)
+                importancia(string(1, ops.back())) >= importancia(tok))
             {
                 output.push_back(string(1, ops.back()));
                 ops.pop_back();
             }
             ops.push_back(tok[0]);
         }
-        else if (tok == "(")
-        {
+        else if (tok == "(") {
             ops.push_back('(');
         }
-        else if (tok == ")")
-        {
-            while (!ops.empty() && ops.back() != '(')
-            {
+        else if (tok == ")") {
+            while (!ops.empty() && ops.back() != '(') {
                 output.push_back(string(1, ops.back()));
                 ops.pop_back();
             }
             if (ops.empty())
-                throw runtime_error("Parentesis desbalanceados");
+                throw runtime_error("");
             ops.pop_back();
         }
         else
@@ -272,7 +276,7 @@ CVector<string> infixToPostfix(const CVector<string>& tokensIn) {
     while (!ops.empty())
     {
         if (ops.back() == '(')
-            throw runtime_error("Parentesis desbalanceados");
+            throw runtime_error("");
         output.push_back(string(1, ops.back()));
         ops.pop_back();
     }
@@ -290,55 +294,50 @@ double evaluatePostfix(CVector<string> postfix)
     {
         string tok = *pt;
 
-        if (isOperator(tok))
+        if (esOperador(tok))
         {
             if (stack.count() < 2)
-                throw runtime_error("Expresion invalida");
+                throw runtime_error("invalido");
 
             double b = stack.back(); stack.pop_back();
             double a = stack.back(); stack.pop_back();
             double r = 0;
 
-            if (tok == "+") r = a + b;
-            else if (tok == "-") r = a - b;
-            else if (tok == "*") r = a * b;
-            else if (tok == "/")
+            if (tok=="+") r = a+b;
+            else if (tok=="-") r = a-b;
+            else if (tok=="*") r = a*b;
+            else if (tok=="/")
             {
-                if (b == 0) throw runtime_error("Division por cero");
+                if (b == 0) throw runtime_error("Division entre cero");
                 r = a / b;
             }
             stack.push_back(r);
         }
-        else
-        {
+        else {
             stack.push_back(stod(tok));
         }
     }
 
     if (stack.count() != 1)
-        throw runtime_error("Expresion invalida");
+        throw runtime_error("invalido");
 
     return stack.back();
 }
 
-int main(){
+int main() {
 
-    string expr = "((4+3)*9)+15/5";
+    string expr = "3*7-5";
 
     CVector<string> tokens = tokenize(expr);
-    cout << "Expresion infija: " << expr << "\n";
+    cout << "infija: " << expr << "\n";
 
-    cout << "Tokens: ";
-    tokens.print();
-    cout << "\n";
-
-    CVector<string> postfix = infixToPostfix(tokens);
-    cout << "Forma postfija: ";
+    CVector<string> postfix = conversor(tokens);
+    cout << "postfija: ";
     postfix.print();
     cout << "\n";
 
-    double result = evaluatePostfix(postfix);
-    cout << "Resultado: " << result << "\n";
+    double total = evaluatePostfix(postfix);
+    cout << "totalado: " << total << "\n";
 
     return 0;
 }
