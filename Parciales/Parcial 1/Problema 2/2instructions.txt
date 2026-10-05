@@ -1,0 +1,15 @@
+Los nodos de la lista circular estan modificados para tener un puntero extra llamado jump.
+Este puntero debe apuntar al nodo en la k posicion siguiente
+Aunq el valor de k sea mayor al numero de elementos de la lista,
+el valor de jump puede dar la vuelta a la lista y seguir apuntando al k-esimo siguiente nodo.
+
+Implementar el metodo updateJumps de la lista circular para los punteros jumps
+sean actualizados despues de cada push y pop. 
+
+No modifiques el main. Codea dentro del metodo updateJumps. 
+Puedes crear nuevas funciones o metodos
+
+Desafio adicional: 
+Crear un metodo que revierta los nodos jump y que apunten al k-esimo nodo anterior
+Para comprobar este desafio adicional puedes modificar el main.
+

@@ -1,0 +1,258 @@
+
+----- Test 1 -----
+Test Case 1: Basic Push
+Circular List (1):
+	Node value 0 -> Jump value 0
+
+Circular List (2):
+	Node value 0 -> Jump value 0
+	Node value 1 -> Jump value 1
+
+Circular List (3):
+	Node value 0 -> Jump value 1
+	Node value 1 -> Jump value 2
+	Node value 2 -> Jump value 0
+
+Circular List (4):
+	Node value 0 -> Jump value 0
+	Node value 1 -> Jump value 1
+	Node value 2 -> Jump value 2
+	Node value 3 -> Jump value 3
+
+Circular List (5):
+	Node value 0 -> Jump value 4
+	Node value 1 -> Jump value 0
+	Node value 2 -> Jump value 1
+	Node value 3 -> Jump value 2
+	Node value 4 -> Jump value 3
+
+Test Case 2: Pop and Push
+Circular List (4):
+	Node value 1 -> Jump value 1
+	Node value 2 -> Jump value 2
+	Node value 3 -> Jump value 3
+	Node value 4 -> Jump value 4
+
+Circular List (5):
+	Node value 1 -> Jump value 5
+	Node value 2 -> Jump value 1
+	Node value 3 -> Jump value 2
+	Node value 4 -> Jump value 3
+	Node value 5 -> Jump value 4
+
+Test Case 3: Push More
+Circular List (8):
+	Node value 1 -> Jump value 5
+	Node value 2 -> Jump value 6
+	Node value 3 -> Jump value 7
+	Node value 4 -> Jump value 8
+	Node value 5 -> Jump value 1
+	Node value 6 -> Jump value 2
+	Node value 7 -> Jump value 3
+	Node value 8 -> Jump value 4
+
+Pop some elements and update
+Circular List (6):
+	Node value 3 -> Jump value 7
+	Node value 4 -> Jump value 8
+	Node value 5 -> Jump value 3
+	Node value 6 -> Jump value 4
+	Node value 7 -> Jump value 5
+	Node value 8 -> Jump value 6
+
+Test Case 4: Circularity Check after multiple operations
+Circular List (9):
+	Node value 3 -> Jump value 7
+	Node value 4 -> Jump value 8
+	Node value 5 -> Jump value 9
+	Node value 6 -> Jump value 10
+	Node value 7 -> Jump value 11
+	Node value 8 -> Jump value 3
+	Node value 9 -> Jump value 4
+	Node value 10 -> Jump value 5
+	Node value 11 -> Jump value 6
+
+Test Case 5: Empty List
+Circular List (8):
+	Node value 4 -> Jump value 8
+	Node value 5 -> Jump value 9
+	Node value 6 -> Jump value 10
+	Node value 7 -> Jump value 11
+	Node value 8 -> Jump value 4
+	Node value 9 -> Jump value 5
+	Node value 10 -> Jump value 6
+	Node value 11 -> Jump value 7
+
+Circular List (7):
+	Node value 5 -> Jump value 9
+	Node value 6 -> Jump value 10
+	Node value 7 -> Jump value 11
+	Node value 8 -> Jump value 5
+	Node value 9 -> Jump value 6
+	Node value 10 -> Jump value 7
+	Node value 11 -> Jump value 8
+
+Circular List (6):
+	Node value 6 -> Jump value 10
+	Node value 7 -> Jump value 11
+	Node value 8 -> Jump value 6
+	Node value 9 -> Jump value 7
+	Node value 10 -> Jump value 8
+	Node value 11 -> Jump value 9
+
+Circular List (5):
+	Node value 7 -> Jump value 11
+	Node value 8 -> Jump value 7
+	Node value 9 -> Jump value 8
+	Node value 10 -> Jump value 9
+	Node value 11 -> Jump value 10
+
+Circular List (4):
+	Node value 8 -> Jump value 8
+	Node value 9 -> Jump value 9
+	Node value 10 -> Jump value 10
+	Node value 11 -> Jump value 11
+
+Circular List (3):
+	Node value 9 -> Jump value 10
+	Node value 10 -> Jump value 11
+	Node value 11 -> Jump value 9
+
+Circular List (2):
+	Node value 10 -> Jump value 10
+	Node value 11 -> Jump value 11
+
+Circular List (1):
+	Node value 11 -> Jump value 11
+
+Circular List (0):NULL
+
+
+
+----- Test 2 -----
+Test Case 1: Basic Push
+Circular List (1):
+	Node value 0 -> Jump value 0
+
+Circular List (2):
+	Node value 0 -> Jump value 1
+	Node value 1 -> Jump value 0
+
+Circular List (3):
+	Node value 0 -> Jump value 2
+	Node value 1 -> Jump value 0
+	Node value 2 -> Jump value 1
+
+Circular List (4):
+	Node value 0 -> Jump value 1
+	Node value 1 -> Jump value 2
+	Node value 2 -> Jump value 3
+	Node value 3 -> Jump value 0
+
+Circular List (5):
+	Node value 0 -> Jump value 0
+	Node value 1 -> Jump value 1
+	Node value 2 -> Jump value 2
+	Node value 3 -> Jump value 3
+	Node value 4 -> Jump value 4
+
+Test Case 2: Pop and Push
+Circular List (4):
+	Node value 1 -> Jump value 2
+	Node value 2 -> Jump value 3
+	Node value 3 -> Jump value 4
+	Node value 4 -> Jump value 1
+
+Circular List (5):
+	Node value 1 -> Jump value 1
+	Node value 2 -> Jump value 2
+	Node value 3 -> Jump value 3
+	Node value 4 -> Jump value 4
+	Node value 5 -> Jump value 5
+
+Test Case 3: Push More
+Circular List (8):
+	Node value 1 -> Jump value 6
+	Node value 2 -> Jump value 7
+	Node value 3 -> Jump value 8
+	Node value 4 -> Jump value 1
+	Node value 5 -> Jump value 2
+	Node value 6 -> Jump value 3
+	Node value 7 -> Jump value 4
+	Node value 8 -> Jump value 5
+
+Pop some elements and update
+Circular List (6):
+	Node value 3 -> Jump value 8
+	Node value 4 -> Jump value 3
+	Node value 5 -> Jump value 4
+	Node value 6 -> Jump value 5
+	Node value 7 -> Jump value 6
+	Node value 8 -> Jump value 7
+
+Test Case 4: Circularity Check after multiple operations
+Circular List (9):
+	Node value 3 -> Jump value 8
+	Node value 4 -> Jump value 9
+	Node value 5 -> Jump value 10
+	Node value 6 -> Jump value 11
+	Node value 7 -> Jump value 3
+	Node value 8 -> Jump value 4
+	Node value 9 -> Jump value 5
+	Node value 10 -> Jump value 6
+	Node value 11 -> Jump value 7
+
+Test Case 5: Empty List
+Circular List (8):
+	Node value 4 -> Jump value 9
+	Node value 5 -> Jump value 10
+	Node value 6 -> Jump value 11
+	Node value 7 -> Jump value 4
+	Node value 8 -> Jump value 5
+	Node value 9 -> Jump value 6
+	Node value 10 -> Jump value 7
+	Node value 11 -> Jump value 8
+
+Circular List (7):
+	Node value 5 -> Jump value 10
+	Node value 6 -> Jump value 11
+	Node value 7 -> Jump value 5
+	Node value 8 -> Jump value 6
+	Node value 9 -> Jump value 7
+	Node value 10 -> Jump value 8
+	Node value 11 -> Jump value 9
+
+Circular List (6):
+	Node value 6 -> Jump value 11
+	Node value 7 -> Jump value 6
+	Node value 8 -> Jump value 7
+	Node value 9 -> Jump value 8
+	Node value 10 -> Jump value 9
+	Node value 11 -> Jump value 10
+
+Circular List (5):
+	Node value 7 -> Jump value 7
+	Node value 8 -> Jump value 8
+	Node value 9 -> Jump value 9
+	Node value 10 -> Jump value 10
+	Node value 11 -> Jump value 11
+
+Circular List (4):
+	Node value 8 -> Jump value 9
+	Node value 9 -> Jump value 10
+	Node value 10 -> Jump value 11
+	Node value 11 -> Jump value 8
+
+Circular List (3):
+	Node value 9 -> Jump value 11
+	Node value 10 -> Jump value 9
+	Node value 11 -> Jump value 10
+
+Circular List (2):
+	Node value 10 -> Jump value 11
+	Node value 11 -> Jump value 10
+
+Circular List (1):
+	Node value 11 -> Jump value 11
+
+Circular List (0):NULL

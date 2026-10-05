@@ -1,0 +1,7 @@
+Implementar el metodo rangeSearch del stack ordenado. 
+Notar que debe funcionar con ambos functores.
+El resultado debe salir igual que la imagen output
+Codear dentro del metodo rangeSearch
+Pueden crear nuevas funciones o metodos si lo desean 
+pero no medifiquen el main ni los otros metodos existentes
+Impriman el resultado, no retornen nada (void)
